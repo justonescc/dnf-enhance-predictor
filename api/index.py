@@ -1,24 +1,6 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+import sys
+import os
 
-app = FastAPI()
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend"))
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/")
-def root():
-    return {"service": "DNF Enhancement Predictor API", "version": "test"}
-
-@app.get("/api/probabilities")
-def probabilities():
-    return {"status": "ok", "enhance": {"+10": 0.4}, "badge": {"7": 0.5}}
-
-@app.post("/api/predict")
-def predict():
-    return {"status": "ok", "predicted_rate": 0.5}
+from app.main import app
