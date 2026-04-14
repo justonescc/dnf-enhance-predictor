@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // 后端 API 基础地址，部署后替换为实际 Render 地址
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
+const API_BASE = import.meta.env.VITE_API_BASE || ''
 
 const apiClient = axios.create({
   baseURL: API_BASE,
