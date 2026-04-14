@@ -1,6 +1,6 @@
 """模型融合模块"""
 import numpy as np
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 from app.models.markov import MarkovPredictor
 from app.models.hmm_model import HMMPredictor
 from app.models.bayesian import BayesianPredictor
@@ -13,29 +13,89 @@ class EnsemblePredictor:
         self.hmm = HMMPredictor()
         self.bayesian = BayesianPredictor()
 
-    def predict(self, enhance_level: str, badge_level: int, results: List[str], weights: Dict[str, float]) -> Dict:
+    def predict(
+        self,
+        enhance_level: str,
+        badge_level: int,
+        results: List[str],
+        weights: Dict[str, float],
+        history_count: int = 0,
+        empirical_patterns: Optional[Dict] = None,
+        personal_rates: Optional[Dict] = None,
+    ) -> Dict:
         base_rate = get_enhance_rate(enhance_level)
         badge_rate = get_badge_rate(badge_level)
+
+        # Fix 3: 贝叶斯先验使用个人历史成功率
+        bayesian_prior = badge_rate
+        if personal_rates and enhance_level in personal_rates:
+            bayesian_prior = personal_rates[enhance_level]
+
         markov_prob = self.markov.predict(results, badge_rate)
         hmm_prob, hmm_state = self.hmm.predict(results, badge_rate)
-        bayesian_alpha, bayesian_beta, bayesian_prob = self.bayesian.predict(results, badge_rate)
+        bayesian_alpha, bayesian_beta, bayesian_prob = self.bayesian.predict(
+            results, bayesian_prior
+        )
+
         w1 = weights.get("w1", 0.3)
         w2 = weights.get("w2", 0.4)
         w3 = weights.get("w3", 0.3)
+
+        # Fix 1: HMM 降级 — 数据<8次时 HMM 权重降为0，马尔可夫和贝叶斯各50%
+        if len(results) < 8:
+            w2 = 0.0
+            w1 = 0.5
+            w3 = 0.5
+            hmm_state = "normal"
+
+        # Fix 2: 经验模型 — 50+条记录时，用经验模式表修正预测
+        empirical_prob = None
+        w4 = 0.0
+        if (
+            history_count >= 50
+            and empirical_patterns
+            and len(results) >= 2
+        ):
+            # 取最后2-3次结果匹配经验模式
+            for suffix_len in (3, 2):
+                if len(results) >= suffix_len:
+                    suffix = "".join(results[-suffix_len:])
+                    if suffix in empirical_patterns:
+                        pattern = empirical_patterns[suffix]
+                        if pattern.get("count", 0) >= 3:
+                            empirical_prob = pattern["success_rate"]
+                            # 成熟阶段权重: w1=0.2, w2=0.3, w3=0.2, w4=0.3
+                            w1, w2, w3, w4 = 0.2, 0.3, 0.2, 0.3
+                            break
+
         predicted_rate = w1 * markov_prob + w2 * hmm_prob + w3 * bayesian_prob
+        if empirical_prob is not None:
+            predicted_rate += w4 * empirical_prob
+
         predicted_rate = round(max(0.01, min(0.99, predicted_rate)), 4)
         confidence = self._calculate_confidence(len(results), markov_prob, hmm_prob, bayesian_prob)
         rec, rec_text, rec_level = self._get_recommendation(predicted_rate, base_rate, confidence)
-        trend = self.bayesian.get_trend(results, badge_rate)
+        trend = self.bayesian.get_trend(results, bayesian_prior)
+
+        models_dict = {
+            "markov_prob": round(markov_prob, 4),
+            "hmm_prob": round(hmm_prob, 4) if len(results) >= 8 else None,
+            "hmm_state": hmm_state,
+            "bayesian_prob": round(bayesian_prob, 4),
+            "bayesian_alpha": bayesian_alpha,
+            "bayesian_beta": bayesian_beta,
+        }
+        if empirical_prob is not None:
+            models_dict["empirical_prob"] = round(empirical_prob, 4)
+
         return {
-            "predicted_rate": predicted_rate, "base_rate": base_rate,
-            "confidence": round(confidence, 4), "recommendation": rec,
-            "recommendation_text": rec_text, "recommendation_level": rec_level,
-            "models": {
-                "markov_prob": round(markov_prob, 4), "hmm_prob": round(hmm_prob, 4),
-                "hmm_state": hmm_state, "bayesian_prob": round(bayesian_prob, 4),
-                "bayesian_alpha": bayesian_alpha, "bayesian_beta": bayesian_beta,
-            },
+            "predicted_rate": predicted_rate,
+            "base_rate": base_rate,
+            "confidence": round(confidence, 4),
+            "recommendation": rec,
+            "recommendation_text": rec_text,
+            "recommendation_level": rec_level,
+            "models": models_dict,
             "trend": trend,
         }
 

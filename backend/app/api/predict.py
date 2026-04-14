@@ -14,6 +14,9 @@ class PredictRequest(BaseModel):
     badge_level: int
     results: List[str]
     weights: Optional[dict] = None
+    history_count: int = 0
+    empirical_patterns: Optional[dict] = None
+    personal_rates: Optional[dict] = None
 
 
 class FeedbackHistoryItem(BaseModel):
@@ -49,6 +52,9 @@ def predict(req: PredictRequest):
         badge_level=req.badge_level,
         results=req.results,
         weights=weights,
+        history_count=req.history_count,
+        empirical_patterns=req.empirical_patterns,
+        personal_rates=req.personal_rates,
     )
 
 
