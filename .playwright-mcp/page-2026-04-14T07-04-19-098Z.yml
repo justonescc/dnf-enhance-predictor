@@ -1,0 +1,100 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - heading "DNF增幅概率预测器" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - button "历史" [ref=e7] [cursor=pointer]
+      - generic [ref=e8]:
+        - button "导出" [ref=e9] [cursor=pointer]
+        - button "导入" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - heading "增幅设置" [level=2] [ref=e15]
+          - generic [ref=e16]:
+            - generic [ref=e17]:
+              - generic [ref=e18]: 目标增幅等级
+              - combobox [ref=e19]:
+                - option "+4 (成功率 80%)"
+                - option "+5 (成功率 70%)"
+                - option "+6 (成功率 60%)"
+                - option "+7 (成功率 70%)"
+                - option "+8 (成功率 60%)"
+                - option "+9 (成功率 50%)"
+                - option "+10 (成功率 40%)" [selected]
+                - option "+11 (成功率 30%)"
+                - option "+12 (成功率 20%)"
+                - option "+13 (成功率 20%)"
+                - option "+14 (成功率 20%)"
+                - option "+15 (成功率 20%)"
+                - option "+16 (成功率 20%)"
+                - option "+17 (成功率 20%)"
+                - option "+18 (成功率 20%)"
+                - option "+19 (成功率 20%)"
+            - generic [ref=e20]:
+              - generic [ref=e21]: 垫手徽章等级
+              - combobox [ref=e22]:
+                - option "5级 (合成成功率 70%)"
+                - option "6级 (合成成功率 60%)"
+                - option "7级 (合成成功率 50%)" [selected]
+                - option "8级 (合成成功率 40%)"
+                - option "9级 (合成成功率 30%)"
+                - option "10级 (合成成功率 30%)"
+            - generic [ref=e23]:
+              - generic [ref=e24]: 垫手基础成功率
+              - generic [ref=e25]: 50%
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - heading "垫手记录" [level=2] [ref=e28]
+            - generic [ref=e29]: 2/20
+          - generic [ref=e30]:
+            - generic [ref=e71]: 1✗
+            - generic [ref=e72]: 2✗
+          - generic [ref=e32]:
+            - button "成功" [ref=e33] [cursor=pointer]
+            - button "失败" [active] [ref=e34] [cursor=pointer]
+            - button "撤销" [ref=e35] [cursor=pointer]
+            - button "清除" [ref=e36] [cursor=pointer]
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading "概率仪表盘" [level=2] [ref=e39]
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - img [ref=e75]
+              - generic [ref=e79]: 45.8%
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: 基础
+                - generic [ref=e85]: 40%
+              - generic [ref=e86]:
+                - generic [ref=e87]: 预测
+                - generic [ref=e90]: 45.8%
+            - generic [ref=e92]:
+              - generic [ref=e93]: "置信度:"
+              - generic [ref=e96]: 20%
+            - generic [ref=e97]: 预测成功率 45.8%，略高于基础 40%，可以再垫几手
+        - generic [ref=e41]:
+          - button "增幅成功" [disabled] [ref=e42]
+          - button "增幅失败" [disabled] [ref=e43]
+        - paragraph [ref=e44]: 记录至少 10 次垫手结果后可反馈
+        - generic [ref=e45]:
+          - heading "模型详情" [level=2] [ref=e46]
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: 马尔可夫链
+              - generic [ref=e50]: 50.0%
+            - generic [ref=e51]:
+              - generic [ref=e52]: 隐马尔可夫
+              - generic [ref=e53]: "--"
+            - generic [ref=e54]:
+              - generic [ref=e55]: 贝叶斯更新
+              - generic [ref=e56]: 41.7%
+            - separator [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]: 预测准确率
+              - generic [ref=e60]: "-- (0次)"
+            - separator [ref=e61]
+            - generic [ref=e62]:
+              - generic [ref=e63]: 学习阶段
+              - generic [ref=e64]: 学习中 (0条)
+    - heading "概率趋势图" [level=2] [ref=e67]

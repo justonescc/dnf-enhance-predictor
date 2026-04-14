@@ -1,0 +1,5 @@
+[    4668ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0
+[  149779ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0
+[  349462ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0
+[  383623ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0
+[  700617ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0

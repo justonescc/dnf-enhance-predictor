@@ -1,0 +1,2 @@
+[   72423ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://dnf-enhance-predictor.vercel.app/api/predict:0
+[   72426ms] [WARNING] 后端不可用，使用前端降级预测 @ https://dnf-enhance-predictor.vercel.app/assets/index-C6nQ04J0.js:8
