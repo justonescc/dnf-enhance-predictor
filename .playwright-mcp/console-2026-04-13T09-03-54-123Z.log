@@ -1,0 +1,36 @@
+[    2267ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    2296ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    2863ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    2871ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    3415ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    3423ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    4366ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    4372ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    5296ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    5299ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    6946ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    6951ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[    7365ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[    7370ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   13347ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   13349ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   17564ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   17571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   18319ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   18325ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   31162ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   31170ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   33291ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   33295ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   33999ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   34005ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   34224ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   34228ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   34816ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   34820ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   37123ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   37128ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   38371ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   38376ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
+[   38551ms] [WARNING] 后端不可用，使用前端降级预测 @ http://localhost:5173/@vite/client:509
+[   38555ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/api/predict:0
